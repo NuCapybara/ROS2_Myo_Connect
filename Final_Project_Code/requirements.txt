@@ -1,0 +1,10 @@
+geometry_msgs==5.0.0
+numpy==1.26.4
+pygame==2.5.2
+pyserial==3.5
+rclpy==4.1.4
+rosidl_parser==4.0.1
+scikit_learn==1.4.2
+sensor_msgs==5.0.0
+setuptools==59.6.0
+std_msgs==5.0.0

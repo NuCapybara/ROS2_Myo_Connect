@@ -1,33 +1,34 @@
-#!/usr/bin/env python3
+# https://github.com/dzhu/myo-raw/issues/8
+
+"""
+	Original by dzhu
+		https://github.com/dzhu/myo-raw
+
+	Edited by Fernando Cosentino
+        http://www.fernandocosentino.net/pyoconnect
+
+    Edited by Alvaro Villoslada (Alvipe)
+        https://github.com/Alvipe/myo-raw
+
+    Edited by Robert Schloen
+        https://github.com/rschloen/semg_control/tree/b76d0fc9b0583eb0f954d9bbf23f4af748efa498
+
+    Edited by Sonia Yuxiao Lai
+"""
 
 from __future__ import print_function
-from struct import pack
 
-import argparse
 import enum
 import re
 import struct
 import sys
 import threading
 import time
-import math
+import csv
 import serial
 from serial.tools.list_ports import comports
+
 from common import *
-import rclpy
-import rclpy.exceptions
-from rclpy.node import Node
-from std_msgs.msg import (
-    String,
-    UInt8,
-    Header,
-    MultiArrayLayout,
-    MultiArrayDimension,
-    Float64MultiArray,
-)
-from geometry_msgs.msg import Quaternion, Vector3
-from sensor_msgs.msg import Imu
-from myo_interfaces.msg import MyoArm, EmgArray
 
 
 def multichr(ords):
@@ -98,9 +99,7 @@ class BT(object):
         while timeout is None or time.time() < t0 + timeout:
             if timeout is not None:
                 self.ser.timeout = t0 + timeout - time.time()
-            print("1111")
             c = self.ser.read()
-            print("2222")
             if not c:
                 return None
 
@@ -503,170 +502,31 @@ class MyoRaw(object):
             h(arm, xdir)
 
 
-class ConnectMyo(Node):
-    def __init__(self):
-        # def proc_emg(emg, moving, times=[]):
-        #     print(emg)
+if __name__ == "__main__":
+    try:
+        import pygame
+        from pygame.locals import *
 
-        #     ## print framerate of received data
-        #     times.append(time.time())
-        #     if len(times) > 20:
-        #         #print((len(times) - 1) / (times[-1] - times[0]))
-        #         times.pop(0)
+        HAVE_PYGAME = True
+    except ImportError:
+        HAVE_PYGAME = False
 
-        # def proc_imu(quat, acc, gyro):
-        #     print(quat)
+    if HAVE_PYGAME:
+        w, h = 1200, 400
+        scr = pygame.display.set_mode((w, h))
 
-        m = MyoRaw(sys.argv[1] if len(sys.argv) >= 2 else None)
+    last_vals = None
+    # with open("data/raw_emg.csv", mode="w+") as emg_file, open(
+    #     "data/raw_imu.csv", mode="w+"
+    # ) as imu_file, open("data/pose.csv", mode="w+") as pose_file:
+    #     emg_writer = csv.writer(emg_file, delimiter=",")
+    #     imu_writer = csv.writer(imu_file, delimiter=",")
+    #     pose_writer = csv.writer(pose_file, delimiter=",")
 
-        def proc_emg(emg, moving, times=[]):
-            print(emg)
-
-            ## print framerate of received data
-            times.append(time.time())
-            if len(times) > 20:
-                # print((len(times) - 1) / (times[-1] - times[0]))
-                times.pop(0)
-
-        def proc_imu(quat, acc, gyro):
-            print(quat)
-
-        m.add_emg_handler(proc_emg)
-        # m.add_pose_handler(lambda p: pose_writer.writerow((time.time(), p.name, p.value)))
-        m.add_pose_handler(lambda p: print(time.time(), p.name, p.value))
-        m.add_imu_handler(proc_imu)
-
-        m.connect()
-        print("finished")
-
-        # self.m.add_arm_handler(lambda arm, xdir: print('arm', arm, 'xdir', xdir))
-
-        # self.m.add_pose_handler(lambda p: print('pose', p))
-        return
-        super().__init__("connect_myo")
-
-        parser = argparse.ArgumentParser()
-        parser.add_argument("serial_port", nargs="?", default=None)
-
-        parser.add_argument("-i", "--imu-topic", default="myo_imu")
-        parser.add_argument("-e", "--emg-topic", default="myo_emg")
-        parser.add_argument("-a", "--arm-topic", default="myo_arm")
-        parser.add_argument("-g", "--gest-topic", default="myo_gest")
-
-        args = parser.parse_args()
-
-        connected = 0
-        print("Initializing...")
-        while connected == 0:
-            try:
-                self.m = MyoRaw(args.serial_port)
-                # fix bug
-                connected = 1
-                # for debug
-                print("Myo Armbad start connecting")
-
-            except (ValueError, KeyboardInterrupt) as e:
-                print("Myo Armband not found. Attempting to connect...")
-                self.sleep(0.5)
-                pass
-
-        # Publish to the turtlesim movement topic
-        self.imuPub = self.create_publisher(Imu, args.imu_topic, 10)
-        self.emgPub = self.create_publisher(EmgArray, args.emg_topic, 10)
-        self.armPub = self.create_publisher(MyoArm, args.arm_topic, 10)
-        self.gestPub = self.create_publisher(UInt8, args.gest_topic, 10)
-
-        self.connect_myo()
-
-    def proc_emg(self, emg, moving, times=[]):
-        ## create an array of ints for emg data
-        self.emgPub.publish(emg)
-        print(emg)
-        ## print framerate of received data
-        times.append(time.time())
-        if len(times) > 20:
-
-            # print((len(times) - 1) / (times[-1] - times[0]))
-            times.pop(0)
-
-    # Package the IMU data into an Imu message
-    def proc_imu(self, quat1, acc, gyro):
-        # New info: https://github.com/thalmiclabs/myo-bluetooth/blob/master/myohw.h#L292-L295
-        # Scale values for unpacking IMU data
-        # define MYOHW_ORIENTATION_SCALE   16384.0f ///< See myohw_imu_data_t::orientation
-        # define MYOHW_ACCELEROMETER_SCALE 2048.0f  ///< See myohw_imu_data_t::accelerometer
-        # define MYOHW_GYROSCOPE_SCALE     16.0f    ///< See myohw_imu_data_t::gyroscope
-        h = Header()
-        h.stamp = self.get_clock().now().to_msg()
-        h.frame_id = "myo"
-        # We currently do not know the covariance of the sensors with each other
-        cov = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        quat = Quaternion(
-            quat1[0] / 16384.0,
-            quat1[1] / 16384.0,
-            quat1[2] / 16384.0,
-            quat1[3] / 16384.0,
-        )
-        ## Normalize the quaternion and accelerometer values
-        quatNorm = math.sqrt(
-            quat.x * quat.x + quat.y * quat.y + quat.z * quat.z + quat.w * quat.w
-        )
-        normQuat = Quaternion(
-            quat.x / quatNorm, quat.y / quatNorm, quat.z / quatNorm, quat.w / quatNorm
-        )
-        normAcc = Vector3(acc[0] / 2048.0, acc[1] / 2048.0, acc[2] / 2048.0)
-        normGyro = Vector3(gyro[0] / 16.0, gyro[1] / 16.0, gyro[2] / 16.0)
-        imu = Imu(h, normQuat, cov, normGyro, cov, normAcc, cov)
-        self.imuPub.publish(imu)
-
-        # Package the arm and x-axis direction into an Arm message
-
-    def proc_arm(self, arm, xdir):
-        # When the arm state changes, publish the new arm and orientation
-        calibArm = MyoArm(arm.value, xdir.value)
-        self.armPub.publish(calibArm)
-
-    # Publish the value of an enumerated gesture
-    def proc_pose(self, p):
-        self.gestPub.publish(p.value)
-
-    def connect_myo(self):
-        self.m.add_emg_handler(self.proc_emg)
-        self.m.add_imu_handler(self.proc_imu)
-        self.m.add_arm_handler(self.proc_arm)
-        self.m.add_pose_handler(self.proc_pose)
-        # try try try
-        print("I got into connect_myo")
-
-        self.m.connect()
-
-        try:
-            while not rclpy.ok():
-                self.m.run(1)
-
-        except (
-            rclpy.exceptions.ROSInterruptException,
-            serial.serialutil.SerialException,
-        ) as e:
-            pass
-        finally:
-            print()
-            print("Disconnecting...")
-            self.m.disconnect()
-            print()
-
-
-def main(args=None):
-
-    sent_arg = sys.argv[1] if len(sys.argv) >= 2 else None
-
-    # print(f"Sent arg: [{sent_arg}]")
-    # exit(1)
-    m = MyoRaw(sent_arg)
+    m = MyoRaw(sys.argv[1] if len(sys.argv) >= 2 else None)
 
     def proc_emg(emg, moving, times=[]):
         print(emg)
-
         ## print framerate of received data
         times.append(time.time())
         if len(times) > 20:
@@ -677,37 +537,42 @@ def main(args=None):
         print(quat)
 
     m.add_emg_handler(proc_emg)
-    # m.add_pose_handler(lambda p: pose_writer.writerow((time.time(), p.name, p.value)))
     m.add_pose_handler(lambda p: print(time.time(), p.name, p.value))
     m.add_imu_handler(proc_imu)
 
     m.connect()
     print("finished")
 
+        # m.add_arm_handler(lambda arm, xdir: print('arm', arm, 'xdir', xdir))
+
+        # m.add_pose_handler(lambda p: print('pose', p))
+
+        # m.add_imu_handler(lambda quat, acc, gyro: imu_writer.writerow(quat + acc + gyro))
+        # m.add_imu_handler(proc_imu)
+
     try:
         while True:
             if m.run(1) is None:
                 print("Connection lost, try to reconnect")
                 m.connect()
+            else:
+                if HAVE_PYGAME:
+                    for ev in pygame.event.get():
+                        if ev.type == QUIT or (
+                            ev.type == KEYDOWN and ev.unicode == "q"
+                        ):
+                            raise KeyboardInterrupt()
+                        elif ev.type == KEYDOWN:
+                            if K_1 <= ev.key <= K_3:
+                                m.vibrate(ev.key - K_0)
+                            if K_KP1 <= ev.key <= K_KP3:
+                                m.vibrate(ev.key - K_KP0)
 
     except KeyboardInterrupt:
         pass
     finally:
         m.disconnect()
+        emg_file.close()
+        imu_file.close()
+        pose_file.close()
         print()
-    exit(0)
-
-    try:
-        rclpy.init(args=args)
-
-        myo_connection = ConnectMyo()
-
-        rclpy.spin(myo_connection)
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    finally:
-        rclpy.shutdown()
-
-
-if __name__ == "__main__":
-    main()
