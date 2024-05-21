@@ -86,7 +86,7 @@ class BT(object):
     """Implements the non-Myo-specific details of the Bluetooth protocol."""
 
     def __init__(self, tty):
-        self.ser = serial.Serial(port=tty, baudrate=9600, dsrdtr=1, timeout=0)
+        self.ser = serial.Serial(port=tty, baudrate=9600, dsrdtr=1)
         self.buf = []
         self.lock = threading.Lock()
         self.handlers = []
@@ -99,7 +99,6 @@ class BT(object):
             if timeout is not None:
                 self.ser.timeout = t0 + timeout - time.time()
             c = self.ser.read()
-
             if not c:
                 return None
 
@@ -252,12 +251,9 @@ class MyoRaw(object):
                 break
         self.bt.end_scan()
 
-        time.sleep(3)
-
         ## connect and wait for status event
         print("connecting to", addr)
         conn_pkt = self.bt.connect(addr)
-        print(f"================= {conn_pkt} =====================")
         self.conn = multiord(conn_pkt.payload)[-1]
         self.bt.wait_event(3, 0)
 
@@ -564,21 +560,17 @@ class ConnectMyo(Node):
         finally:
             self.m.disconnect()
 
-
 def main(args=None):
     rclpy.init(args=args)
-    myo_connection = ConnectMyo()
-    executor = rclpy.executors.MultiThreadedExecutor()
-    executor.add_node(myo_connection)
+    tty = sys.argv[1] if len(sys.argv) >= 2 else None
+    myo_connection = ConnectMyo(tty)
 
     try:
-        executor.spin()
+        rclpy.spin(myo_connection)
     except rclpy.exceptions.ROSInterruptException:
         pass
     finally:
-        myo_connection.destroy_node()
         rclpy.shutdown()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

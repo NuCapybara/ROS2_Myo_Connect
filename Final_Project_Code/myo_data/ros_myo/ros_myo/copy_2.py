@@ -252,8 +252,6 @@ class MyoRaw(object):
                 break
         self.bt.end_scan()
 
-        time.sleep(3)
-
         ## connect and wait for status event
         print("connecting to", addr)
         conn_pkt = self.bt.connect(addr)
@@ -507,9 +505,7 @@ class ConnectMyo(Node):
         self.m.add_arm_handler(self.proc_arm)
         self.m.add_pose_handler(self.proc_pose)
 
-        self.thread = threading.Thread(target=self.read_serial_data)
-        self.thread.daemon = True
-        self.thread.start()
+        self.read_serial_data()
 
     def proc_emg(self, emg, moving, times=[]):
         ## create an array of ints for emg data
@@ -569,9 +565,9 @@ def main(args=None):
     rclpy.init(args=args)
     myo_connection = ConnectMyo()
     executor = rclpy.executors.MultiThreadedExecutor()
-    executor.add_node(myo_connection)
 
     try:
+        executor.add_node(myo_connection)
         executor.spin()
     except rclpy.exceptions.ROSInterruptException:
         pass
