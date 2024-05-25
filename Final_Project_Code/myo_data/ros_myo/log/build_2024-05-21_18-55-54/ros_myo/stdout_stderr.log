@@ -1,0 +1,26 @@
+running develop
+running egg_info
+creating ros_myo.egg-info
+writing ros_myo.egg-info/PKG-INFO
+writing dependency_links to ros_myo.egg-info/dependency_links.txt
+writing entry points to ros_myo.egg-info/entry_points.txt
+writing requirements to ros_myo.egg-info/requires.txt
+writing top-level names to ros_myo.egg-info/top_level.txt
+writing manifest file 'ros_myo.egg-info/SOURCES.txt'
+reading manifest file 'ros_myo.egg-info/SOURCES.txt'
+writing manifest file 'ros_myo.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/lib/python3.10/site-packages/ros-myo.egg-link (link to .)
+Installing connectMyo script to /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/lib/ros_myo
+Installing myoDemo script to /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/lib/ros_myo
+Installing turtleSimDrive script to /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/lib/ros_myo
+
+Installed /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/build/ros_myo
+running install_data
+creating /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/share/ament_index
+creating /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/share/ament_index/resource_index
+creating /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/share/ament_index/resource_index/packages
+copying resource/ros_myo -> /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/share/ament_index/resource_index/packages
+copying package.xml -> /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/share/ros_myo
+copying launch/turtle_analog.launch.xml -> /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/share/ros_myo
+copying launch/turtle_pose.launch.xml -> /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/share/ros_myo

@@ -14,6 +14,7 @@ setup(
                                    'launch/turtle_pose.launch.xml',
                                    ]),
     ],
+    py_modules=[package_name + ".ConnectMyo"],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='jialuyu',

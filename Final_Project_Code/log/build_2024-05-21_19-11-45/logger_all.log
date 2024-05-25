@@ -1,0 +1,274 @@
+[1.533s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[1.533s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=32, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x79b552b2bf70>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x79b552c92080>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x79b552c92080>>, mixin_verb=('build',))
+[1.585s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.585s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.585s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.585s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.585s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.585s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.585s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code'
+[1.585s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.595s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extensions ['ignore', 'ignore_ament_install']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extension 'ignore'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extension 'ignore_ament_install'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extensions ['colcon_pkg']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extension 'colcon_pkg'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extensions ['colcon_meta']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extension 'colcon_meta'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extensions ['ros']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extension 'ros'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extensions ['cmake', 'python']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extension 'cmake'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extension 'python'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extensions ['python_setup_py']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect) by extension 'python_setup_py'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extensions ['ignore', 'ignore_ament_install']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extension 'ignore'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extension 'ignore_ament_install'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extensions ['colcon_pkg']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extension 'colcon_pkg'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extensions ['colcon_meta']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extension 'colcon_meta'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extensions ['ros']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extension 'ros'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extensions ['cmake', 'python']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extension 'cmake'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extension 'python'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extensions ['python_setup_py']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw) by extension 'python_setup_py'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extension 'ignore'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extension 'ignore_ament_install'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extensions ['colcon_pkg']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extension 'colcon_pkg'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extensions ['colcon_meta']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extension 'colcon_meta'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extensions ['ros']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extension 'ros'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extensions ['cmake', 'python']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extension 'cmake'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extension 'python'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extensions ['python_setup_py']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/__pycache__) by extension 'python_setup_py'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extensions ['ignore', 'ignore_ament_install']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extension 'ignore'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extension 'ignore_ament_install'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extensions ['colcon_pkg']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extension 'colcon_pkg'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extensions ['colcon_meta']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extension 'colcon_meta'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extensions ['ros']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extension 'ros'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extensions ['cmake', 'python']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extension 'cmake'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extension 'python'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extensions ['python_setup_py']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(Myo_Connect/myo-raw/data) by extension 'python_setup_py'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extensions ['ignore', 'ignore_ament_install']
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extension 'ignore'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extension 'ignore_ament_install'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extensions ['colcon_pkg']
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extension 'colcon_pkg'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extensions ['colcon_meta']
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extension 'colcon_meta'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extensions ['ros']
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extension 'ros'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extensions ['cmake', 'python']
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extension 'cmake'
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extension 'python'
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extensions ['python_setup_py']
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data) by extension 'python_setup_py'
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/myo_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/myo_interfaces) by extension 'ignore'
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/myo_interfaces) by extension 'ignore_ament_install'
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/myo_interfaces) by extensions ['colcon_pkg']
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/myo_interfaces) by extension 'colcon_pkg'
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/myo_interfaces) by extensions ['colcon_meta']
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/myo_interfaces) by extension 'colcon_meta'
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/myo_interfaces) by extensions ['ros']
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/myo_interfaces) by extension 'ros'
+[1.602s] DEBUG:colcon.colcon_core.package_identification:Package 'myo_data/myo_interfaces' with type 'ros.ament_cmake' and name 'myo_interfaces'
+[1.602s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/ros_myo) by extensions ['ignore', 'ignore_ament_install']
+[1.602s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/ros_myo) by extension 'ignore'
+[1.602s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/ros_myo) by extension 'ignore_ament_install'
+[1.602s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/ros_myo) by extensions ['colcon_pkg']
+[1.602s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/ros_myo) by extension 'colcon_pkg'
+[1.603s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/ros_myo) by extensions ['colcon_meta']
+[1.603s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/ros_myo) by extension 'colcon_meta'
+[1.603s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/ros_myo) by extensions ['ros']
+[1.603s] Level 1:colcon.colcon_core.package_identification:_identify(myo_data/ros_myo) by extension 'ros'
+[1.603s] DEBUG:colcon.colcon_core.package_identification:Package 'myo_data/ros_myo' with type 'ros.ament_python' and name 'ros_myo'
+[1.603s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.603s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.603s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.603s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.603s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.710s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.710s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.747s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 2 installed packages in /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install
+[1.765s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install
+[1.783s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 8 installed packages in /home/jialuyu/ws/ws/franka/install
+[1.801s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 7 installed packages in /home/jialuyu/ws/final_project_ROS/install
+[1.819s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 21 installed packages in /home/jialuyu/ws/interbotix/install
+[1.837s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/jialuyu/ws/install
+[1.855s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/jialuyu/Winter_Project/install
+[1.872s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/jialuyu/ws/moveit_pincher/install
+[1.891s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 464 installed packages in /opt/ros/iron
+[1.893s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.995s] Level 5:colcon.colcon_core.verb:set package 'myo_interfaces' build argument 'cmake_args' from command line to 'None'
+[1.995s] Level 5:colcon.colcon_core.verb:set package 'myo_interfaces' build argument 'cmake_target' from command line to 'None'
+[1.995s] Level 5:colcon.colcon_core.verb:set package 'myo_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.995s] Level 5:colcon.colcon_core.verb:set package 'myo_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[1.995s] Level 5:colcon.colcon_core.verb:set package 'myo_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[1.995s] Level 5:colcon.colcon_core.verb:set package 'myo_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[1.995s] Level 5:colcon.colcon_core.verb:set package 'myo_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[1.995s] Level 5:colcon.colcon_core.verb:set package 'myo_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[1.995s] Level 5:colcon.colcon_core.verb:set package 'myo_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.995s] DEBUG:colcon.colcon_core.verb:Building package 'myo_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces', 'merge_install': False, 'path': '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/myo_interfaces', 'symlink_install': True, 'test_result_base': None}
+[2.013s] Level 5:colcon.colcon_core.verb:set package 'ros_myo' build argument 'cmake_args' from command line to 'None'
+[2.013s] Level 5:colcon.colcon_core.verb:set package 'ros_myo' build argument 'cmake_target' from command line to 'None'
+[2.013s] Level 5:colcon.colcon_core.verb:set package 'ros_myo' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.013s] Level 5:colcon.colcon_core.verb:set package 'ros_myo' build argument 'cmake_clean_cache' from command line to 'False'
+[2.013s] Level 5:colcon.colcon_core.verb:set package 'ros_myo' build argument 'cmake_clean_first' from command line to 'False'
+[2.013s] Level 5:colcon.colcon_core.verb:set package 'ros_myo' build argument 'cmake_force_configure' from command line to 'False'
+[2.013s] Level 5:colcon.colcon_core.verb:set package 'ros_myo' build argument 'ament_cmake_args' from command line to 'None'
+[2.013s] Level 5:colcon.colcon_core.verb:set package 'ros_myo' build argument 'catkin_cmake_args' from command line to 'None'
+[2.013s] Level 5:colcon.colcon_core.verb:set package 'ros_myo' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.013s] DEBUG:colcon.colcon_core.verb:Building package 'ros_myo' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo', 'merge_install': False, 'path': '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo', 'symlink_install': True, 'test_result_base': None}
+[2.031s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[2.050s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[2.050s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/myo_interfaces' with build type 'ament_cmake'
+[2.050s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/myo_interfaces'
+[2.070s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[2.070s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.071s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.322s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake --build /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces -- -j32 -l32
+[4.019s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake --build /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces -- -j32 -l32
+[4.136s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake --install /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces
+[4.217s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(myo_interfaces)
+[4.218s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake --install /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces
+[4.229s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces' for CMake module files
+[4.230s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces' for CMake config files
+[4.230s] Level 1:colcon.colcon_core.shell:create_environment_hook('myo_interfaces', 'cmake_prefix_path')
+[4.240s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/cmake_prefix_path.ps1'
+[4.240s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/cmake_prefix_path.dsv'
+[4.240s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/cmake_prefix_path.sh'
+[4.241s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib'
+[4.241s] Level 1:colcon.colcon_core.shell:create_environment_hook('myo_interfaces', 'ld_library_path_lib')
+[4.251s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/ld_library_path_lib.ps1'
+[4.251s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/ld_library_path_lib.dsv'
+[4.251s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/ld_library_path_lib.sh'
+[4.251s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/bin'
+[4.251s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/pkgconfig/myo_interfaces.pc'
+[4.251s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages'
+[4.251s] Level 1:colcon.colcon_core.shell:create_environment_hook('myo_interfaces', 'pythonpath')
+[4.262s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/pythonpath.ps1'
+[4.262s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/pythonpath.dsv'
+[4.262s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/pythonpath.sh'
+[4.262s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/bin'
+[4.272s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.ps1'
+[4.273s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.dsv'
+[4.273s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.sh'
+[4.274s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.bash'
+[4.274s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.zsh'
+[4.275s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/colcon-core/packages/myo_interfaces)
+[4.437s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(myo_interfaces)
+[4.455s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces' for CMake module files
+[4.456s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces' for CMake config files
+[4.457s] Level 1:colcon.colcon_core.shell:create_environment_hook('myo_interfaces', 'cmake_prefix_path')
+[4.475s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/cmake_prefix_path.ps1'
+[4.475s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/cmake_prefix_path.dsv'
+[4.475s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/cmake_prefix_path.sh'
+[4.476s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib'
+[4.476s] Level 1:colcon.colcon_core.shell:create_environment_hook('myo_interfaces', 'ld_library_path_lib')
+[4.494s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/ld_library_path_lib.ps1'
+[4.495s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/ld_library_path_lib.dsv'
+[4.495s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/ld_library_path_lib.sh'
+[4.495s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/bin'
+[4.495s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/pkgconfig/myo_interfaces.pc'
+[4.496s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages'
+[4.496s] Level 1:colcon.colcon_core.shell:create_environment_hook('myo_interfaces', 'pythonpath')
+[4.514s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/pythonpath.ps1'
+[4.514s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/pythonpath.dsv'
+[4.515s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/hook/pythonpath.sh'
+[4.515s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/bin'
+[4.533s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.ps1'
+[4.534s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.dsv'
+[4.534s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.sh'
+[4.534s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.bash'
+[4.535s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.zsh'
+[4.535s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/colcon-core/packages/myo_interfaces)
+[4.535s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo' with build type 'ament_python'
+[4.535s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_myo', 'ament_prefix_path')
+[4.555s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/hook/ament_prefix_path.ps1'
+[4.555s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/hook/ament_prefix_path.dsv'
+[4.555s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/hook/ament_prefix_path.sh'
+[4.576s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.576s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.073s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo'
+[5.092s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.092s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.668s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo': PYTHONPATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/prefix_override:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/python3.10/site-packages:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/python3.10/site-packages:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/build/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/lib/python3.10/site-packages:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules/lib/python3.10/site-packages:/home/jialuyu/ws/interbotix/install/interbotix_xs_msgs/lib/python3.10/site-packages:/home/jialuyu/ws/interbotix/install/interbotix_common_modules/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/ros_april_tag:/home/jialuyu/Winter_Project/install/ros_april_tag/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/my-test-package:/home/jialuyu/Winter_Project/install/my-test-package/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/moveit_python:/home/jialuyu/Winter_Project/install/moveit_python/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/face_recognition_ros_node/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/care:/home/jialuyu/Winter_Project/install/care/lib/python3.10/site-packages:/home/jialuyu/ws/ws/franka/install/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/trigger/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/trigger_interfaces/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/control/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/trajectory_interfaces/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/image_yolo/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/audio_input/lib/python3.10/site-packages:/home/jialuyu/ws/install/lib/python3.10/site-packages:/home/jialuyu/ws/moveit_pincher/install/pickmeup/lib/python3.10/site-packages:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper/lib/python3.10/site-packages:/home/jialuyu/ws/moveit_pincher/install/diff_drive/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py develop --editable --build-directory /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/build --no-deps install_data
+[6.225s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_myo', 'pythonpath_develop')
+[6.226s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo' returned '0': PYTHONPATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/prefix_override:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/python3.10/site-packages:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/python3.10/site-packages:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/build/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo/lib/python3.10/site-packages:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules/lib/python3.10/site-packages:/home/jialuyu/ws/interbotix/install/interbotix_xs_msgs/lib/python3.10/site-packages:/home/jialuyu/ws/interbotix/install/interbotix_common_modules/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/ros_april_tag:/home/jialuyu/Winter_Project/install/ros_april_tag/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/my-test-package:/home/jialuyu/Winter_Project/install/my-test-package/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/moveit_python:/home/jialuyu/Winter_Project/install/moveit_python/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/face_recognition_ros_node/lib/python3.10/site-packages:/home/jialuyu/Winter_Project/build/care:/home/jialuyu/Winter_Project/install/care/lib/python3.10/site-packages:/home/jialuyu/ws/ws/franka/install/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/trigger/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/trigger_interfaces/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/control/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/trajectory_interfaces/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/image_yolo/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory/lib/python3.10/site-packages:/home/jialuyu/ws/final_project_ROS/install/audio_input/lib/python3.10/site-packages:/home/jialuyu/ws/install/lib/python3.10/site-packages:/home/jialuyu/ws/moveit_pincher/install/pickmeup/lib/python3.10/site-packages:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper/lib/python3.10/site-packages:/home/jialuyu/ws/moveit_pincher/install/diff_drive/lib/python3.10/site-packages:/opt/ros/iron/lib/python3.10/site-packages /usr/bin/python3 setup.py develop --editable --build-directory /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/build --no-deps install_data
+[6.244s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/share/ros_myo/hook/pythonpath_develop.ps1'
+[6.244s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/share/ros_myo/hook/pythonpath_develop.dsv'
+[6.245s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/share/ros_myo/hook/pythonpath_develop.sh'
+[6.263s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo' for CMake module files
+[6.263s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo' for CMake config files
+[6.263s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib'
+[6.263s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/bin'
+[6.263s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/pkgconfig/ros_myo.pc'
+[6.264s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/python3.10/site-packages'
+[6.264s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_myo', 'pythonpath')
+[6.282s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/hook/pythonpath.ps1'
+[6.282s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/hook/pythonpath.dsv'
+[6.282s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/hook/pythonpath.sh'
+[6.283s] Level 1:colcon.colcon_core.environment:checking '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/bin'
+[6.283s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_myo)
+[6.301s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/package.ps1'
+[6.301s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/package.dsv'
+[6.302s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/package.sh'
+[6.302s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/package.bash'
+[6.302s] INFO:colcon.colcon_core.shell:Creating package script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo/package.zsh'
+[6.303s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/colcon-core/packages/ros_myo)
+[6.303s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[6.303s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[6.304s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[6.304s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[6.329s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[6.329s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[6.329s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[6.342s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[6.367s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/local_setup.ps1'
+[6.368s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/_local_setup_util_ps1.py'
+[6.369s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/setup.ps1'
+[6.390s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/local_setup.sh'
+[6.390s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/_local_setup_util_sh.py'
+[6.390s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/setup.sh'
+[6.410s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/local_setup.bash'
+[6.410s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/setup.bash'
+[6.431s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/local_setup.zsh'
+[6.431s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/setup.zsh'

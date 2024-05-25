@@ -1,0 +1,7 @@
+{
+  "package_name": "myo_interfaces",
+  "non_idl_tuples": [
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/myo_interfaces:msg/EmgArray.msg",
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/myo_interfaces:msg/MyoArm.msg"
+  ]
+}

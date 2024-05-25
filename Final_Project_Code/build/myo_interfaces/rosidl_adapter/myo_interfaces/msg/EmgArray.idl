@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from myo_interfaces/msg/EmgArray.msg
+// generated code does not contain a copyright notice
+
+
+module myo_interfaces {
+  module msg {
+    @verbatim (language="comment", text=
+      "EmgArray message for the Thalmic Myo, which has 8 EMG sensors " "\n"
+      "arranged about the arm")
+    struct EmgArray {
+      sequence<int32> data;
+    };
+  };
+};

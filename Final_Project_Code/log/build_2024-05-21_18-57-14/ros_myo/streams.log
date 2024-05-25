@@ -1,0 +1,28 @@
+[1.385s] Invoking command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo': AMENT_PREFIX_PATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/prefix_override:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/python3.10/site-packages:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/build --no-deps install_data
+[1.689s] running develop
+[1.945s] running egg_info
+[1.946s] creating ros_myo.egg-info
+[1.946s] writing ros_myo.egg-info/PKG-INFO
+[1.946s] writing dependency_links to ros_myo.egg-info/dependency_links.txt
+[1.946s] writing entry points to ros_myo.egg-info/entry_points.txt
+[1.946s] writing requirements to ros_myo.egg-info/requires.txt
+[1.947s] writing top-level names to ros_myo.egg-info/top_level.txt
+[1.947s] writing manifest file 'ros_myo.egg-info/SOURCES.txt'
+[1.950s] reading manifest file 'ros_myo.egg-info/SOURCES.txt'
+[1.951s] writing manifest file 'ros_myo.egg-info/SOURCES.txt'
+[1.953s] running build_ext
+[1.953s] Creating /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/python3.10/site-packages/ros-myo.egg-link (link to .)
+[1.954s] Installing connectMyo script to /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/ros_myo
+[1.954s] Installing myoDemo script to /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/ros_myo
+[1.955s] Installing turtleSimDrive script to /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/ros_myo
+[1.955s] 
+[1.955s] Installed /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo
+[1.955s] running install_data
+[1.955s] creating /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ament_index
+[1.955s] creating /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ament_index/resource_index
+[1.955s] creating /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ament_index/resource_index/packages
+[1.955s] copying resource/ros_myo -> /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ament_index/resource_index/packages
+[1.955s] copying package.xml -> /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo
+[1.956s] copying launch/turtle_analog.launch.xml -> /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo
+[1.956s] copying launch/turtle_pose.launch.xml -> /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/share/ros_myo
+[1.987s] Invoked command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo' returned '0': AMENT_PREFIX_PATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/prefix_override:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo/lib/python3.10/site-packages:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/ros_myo/build --no-deps install_data

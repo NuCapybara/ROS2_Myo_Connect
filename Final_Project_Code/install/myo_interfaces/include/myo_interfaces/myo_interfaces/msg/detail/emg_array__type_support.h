@@ -1,0 +1,1 @@
+/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces/rosidl_generator_c/myo_interfaces/msg/detail/emg_array__type_support.h

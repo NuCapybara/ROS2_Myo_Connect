@@ -1,0 +1,8 @@
+{
+  "package_name": "myo_interfaces",
+  "output_dir": "/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces/rosidl_generator_type_description/myo_interfaces",
+  "idl_tuples": [
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces/rosidl_adapter/myo_interfaces:msg/EmgArray.idl",
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces/rosidl_adapter/myo_interfaces:msg/MyoArm.idl"
+  ]
+}

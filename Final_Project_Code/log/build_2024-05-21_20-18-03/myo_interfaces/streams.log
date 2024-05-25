@@ -1,0 +1,174 @@
+[0.208s] Invoking command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/myo_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces
+[0.218s] -- Found ament_cmake: 2.0.4 (/opt/ros/iron/share/ament_cmake/cmake)
+[0.362s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.367s] -- Found geometry_msgs: 5.0.0 (/opt/ros/iron/share/geometry_msgs/cmake)
+[0.388s] -- Found rosidl_generator_c: 4.0.1 (/opt/ros/iron/share/rosidl_generator_c/cmake)
+[0.395s] -- Found rosidl_generator_cpp: 4.0.1 (/opt/ros/iron/share/rosidl_generator_cpp/cmake)
+[0.406s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.419s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.501s] -- Found rosidl_default_generators: 1.5.0 (/opt/ros/iron/share/rosidl_default_generators/cmake)
+[0.510s] -- Found rosidl_adapter: 4.0.1 (/opt/ros/iron/share/rosidl_adapter/cmake)
+[0.806s] -- Found ament_cmake_ros: 0.11.2 (/opt/ros/iron/share/ament_cmake_ros/cmake)
+[1.111s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.232s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.256s] -- Found python_cmake_module: 0.10.2 (/opt/ros/iron/share/python_cmake_module/cmake)
+[1.279s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.280s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.280s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.302s] -- Found ament_lint_auto: 0.14.3 (/opt/ros/iron/share/ament_lint_auto/cmake)
+[1.309s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.310s] -- Added test 'lint_cmake' to check CMake code style
+[1.311s] -- Added test 'xmllint' to check XML markup files
+[1.313s] -- Configuring done
+[1.334s] -- Generating done
+[1.337s] -- Build files have been written to: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces
+[1.343s] Invoked command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/myo_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces
+[1.344s] Invoking command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake --build /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces -- -j32 -l32
+[1.389s] [  2%] Built target myo_interfaces__rosidl_generator_type_description
+[1.394s] [  2%] Built target ament_cmake_python_symlink_myo_interfaces
+[1.397s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_generator_c[0m
+[1.403s] [  4%] Built target myo_interfaces__cpp
+[1.406s] [ 22%] Built target myo_interfaces__rosidl_generator_c
+[1.414s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_typesupport_cpp[0m
+[1.414s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_typesupport_fastrtps_c[0m
+[1.414s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_typesupport_introspection_c[0m
+[1.414s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_typesupport_fastrtps_cpp[0m
+[1.414s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_typesupport_introspection_cpp[0m
+[1.415s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_typesupport_c[0m
+[1.422s] [ 31%] Built target myo_interfaces__rosidl_typesupport_introspection_c
+[1.423s] [ 40%] Built target myo_interfaces__rosidl_typesupport_fastrtps_c
+[1.423s] [ 50%] Built target myo_interfaces__rosidl_typesupport_cpp
+[1.423s] [ 59%] Built target myo_interfaces__rosidl_typesupport_introspection_cpp
+[1.424s] [ 68%] Built target myo_interfaces__rosidl_typesupport_c
+[1.424s] [ 77%] Built target myo_interfaces__rosidl_typesupport_fastrtps_cpp
+[1.438s] [ 77%] Built target myo_interfaces
+[1.454s] [ 79%] Built target myo_interfaces__py
+[1.461s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_generator_py[0m
+[1.471s] [ 86%] Built target myo_interfaces__rosidl_generator_py
+[1.479s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_typesupport_fastrtps_c__pyext[0m
+[1.479s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_typesupport_introspection_c__pyext[0m
+[1.479s] [35m[1mConsolidate compiler generated dependencies of target myo_interfaces__rosidl_typesupport_c__pyext[0m
+[1.488s] [ 90%] Built target myo_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[1.488s] [ 95%] Built target myo_interfaces__rosidl_typesupport_introspection_c__pyext
+[1.488s] [100%] Built target myo_interfaces__rosidl_typesupport_c__pyext
+[1.680s] running egg_info
+[1.680s] writing myo_interfaces.egg-info/PKG-INFO
+[1.680s] writing dependency_links to myo_interfaces.egg-info/dependency_links.txt
+[1.680s] writing top-level names to myo_interfaces.egg-info/top_level.txt
+[1.682s] reading manifest file 'myo_interfaces.egg-info/SOURCES.txt'
+[1.683s] writing manifest file 'myo_interfaces.egg-info/SOURCES.txt'
+[1.702s] [100%] Built target ament_cmake_python_build_myo_interfaces_egg
+[1.711s] Invoked command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake --build /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces -- -j32 -l32
+[1.829s] Invoking command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake --install /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces
+[1.835s] -- Install configuration: ""
+[1.836s] -- Execute custom install script
+[1.836s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/ament_index/resource_index/rosidl_interfaces/myo_interfaces
+[1.836s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/msg/EmgArray.json
+[1.836s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/msg/MyoArm.json
+[1.837s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__functions.h
+[1.837s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__struct.h
+[1.837s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__type_support.h
+[1.837s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__functions.h
+[1.837s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__struct.h
+[1.837s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__type_support.h
+[1.837s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/emg_array.h
+[1.837s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/myo_arm.h
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/rosidl_generator_c__visibility_control.h
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/environment/library_path.sh
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/environment/library_path.dsv
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__rosidl_typesupport_fastrtps_c.h
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__rosidl_typesupport_fastrtps_c.h
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__builder.hpp
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__struct.hpp
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__traits.hpp
+[1.838s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__builder.hpp
+[1.839s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__struct.hpp
+[1.839s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__traits.hpp
+[1.839s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/emg_array.hpp
+[1.839s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/myo_arm.hpp
+[1.839s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__rosidl_typesupport_fastrtps_cpp.hpp
+[1.839s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__rosidl_typesupport_fastrtps_cpp.hpp
+[1.839s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.839s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__rosidl_typesupport_introspection_c.h
+[1.839s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__rosidl_typesupport_introspection_c.h
+[1.840s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.840s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/emg_array__rosidl_typesupport_introspection_cpp.hpp
+[1.840s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/include/myo_interfaces/myo_interfaces/msg/detail/myo_arm__rosidl_typesupport_introspection_cpp.hpp
+[1.840s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/environment/pythonpath.sh
+[1.840s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/environment/pythonpath.dsv
+[1.840s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[1.840s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.840s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.841s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[1.841s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/__init__.py
+[1.841s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/_myo_interfaces_s.ep.rosidl_typesupport_c.c
+[1.841s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/_myo_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[1.841s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/_myo_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[1.841s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/libmyo_interfaces__rosidl_generator_py.so
+[1.841s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/msg/__init__.py
+[1.841s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/msg/_emg_array.py
+[1.841s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/msg/_emg_array_s.c
+[1.842s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/msg/_myo_arm.py
+[1.842s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/msg/_myo_arm_s.c
+[1.842s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/myo_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.842s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/myo_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.842s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/myo_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.842s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/myo_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.842s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/myo_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.842s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/myo_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.842s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/msg/EmgArray.idl
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/msg/MyoArm.idl
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/msg/EmgArray.msg
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/msg/MyoArm.msg
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/ament_index/resource_index/package_run_dependencies/myo_interfaces
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/ament_index/resource_index/parent_prefix_path/myo_interfaces
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/environment/ament_prefix_path.sh
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/environment/ament_prefix_path.dsv
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/environment/path.sh
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/environment/path.dsv
+[1.843s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/local_setup.bash
+[1.844s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/local_setup.sh
+[1.844s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/local_setup.zsh
+[1.844s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/local_setup.dsv
+[1.844s] -- Symlinking: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.dsv
+[1.851s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/ament_index/resource_index/packages/myo_interfaces
+[1.851s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/rosidl_cmake-extras.cmake
+[1.851s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.851s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[1.851s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[1.851s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.851s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.851s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.851s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfacesConfig.cmake
+[1.852s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfacesConfig-version.cmake
+[1.852s] -- Up-to-date symlink: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/package.xml
+[1.852s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/libmyo_interfaces__rosidl_generator_c.so
+[1.852s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/libmyo_interfaces__rosidl_typesupport_fastrtps_c.so
+[1.852s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/libmyo_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[1.852s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/libmyo_interfaces__rosidl_typesupport_introspection_c.so
+[1.853s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/libmyo_interfaces__rosidl_typesupport_c.so
+[1.853s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/libmyo_interfaces__rosidl_typesupport_introspection_cpp.so
+[1.853s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/libmyo_interfaces__rosidl_typesupport_cpp.so
+[1.892s] Listing '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces'...
+[1.892s] Compiling '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/__init__.py'...
+[1.892s] Listing '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/python3.10/site-packages/myo_interfaces/msg'...
+[1.895s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/lib/libmyo_interfaces__rosidl_generator_py.so
+[1.895s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/export_myo_interfaces__rosidl_generator_cExport.cmake
+[1.895s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/export_myo_interfaces__rosidl_generator_cExport-noconfig.cmake
+[1.895s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/export_myo_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[1.895s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/export_myo_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[1.895s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/export_myo_interfaces__rosidl_generator_cppExport.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/export_myo_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/export_myo_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfaces__rosidl_typesupport_cExport.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfaces__rosidl_typesupport_cppExport.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/myo_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/export_myo_interfaces__rosidl_generator_pyExport.cmake
+[1.896s] -- Up-to-date: /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/myo_interfaces/share/myo_interfaces/cmake/export_myo_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[1.897s] Invoked command in '/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/install/ros_myo:/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/ros_myo/install/ros_myo:/home/jialuyu/ws/interbotix/install/interbotix_xs_modules:/home/jialuyu/ws/interbotix/install/interbotix_common_modules:/home/jialuyu/Winter_Project/install/ros_april_tag:/home/jialuyu/Winter_Project/install/moveit_python:/home/jialuyu/Winter_Project/install/face_recognition_ros_node:/home/jialuyu/Winter_Project/install/care:/home/jialuyu/ws/final_project_ROS/install/trigger:/home/jialuyu/ws/final_project_ROS/install/control:/home/jialuyu/ws/final_project_ROS/install/image_yolo:/home/jialuyu/ws/final_project_ROS/install/gun_trajectory:/home/jialuyu/ws/final_project_ROS/install/audio_input:/home/jialuyu/ws/moveit_pincher/install/pickmeup:/home/jialuyu/ws/moveit_pincher/install/moveit_wrapper:/home/jialuyu/ws/moveit_pincher/install/diff_drive:/opt/ros/iron /usr/bin/cmake --install /home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/build/myo_interfaces

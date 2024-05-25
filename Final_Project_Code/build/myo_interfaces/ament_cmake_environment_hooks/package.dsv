@@ -1,0 +1,4 @@
+source;share/myo_interfaces/local_setup.bash
+source;share/myo_interfaces/local_setup.dsv
+source;share/myo_interfaces/local_setup.sh
+source;share/myo_interfaces/local_setup.zsh
