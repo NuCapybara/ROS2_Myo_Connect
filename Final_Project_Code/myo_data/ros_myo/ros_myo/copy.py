@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from __future__ import print_function
-from struct import pack
+from struct import pack, unpack
 
 import argparse
 import enum
@@ -15,6 +15,7 @@ import serial
 from serial.tools.list_ports import comports
 from common import *
 import rclpy
+import rclpy.callback_groups
 import rclpy.exceptions
 from rclpy.node import Node
 from std_msgs.msg import (
@@ -28,6 +29,7 @@ from std_msgs.msg import (
 from geometry_msgs.msg import Quaternion, Vector3
 from sensor_msgs.msg import Imu
 from myo_interfaces.msg import MyoArm, EmgArray
+import os
 
 
 def multichr(ords):
@@ -86,26 +88,39 @@ class BT(object):
     """Implements the non-Myo-specific details of the Bluetooth protocol."""
 
     def __init__(self, tty):
-        self.ser = serial.Serial(port=tty, baudrate=9600, dsrdtr=1)
+        self.ser = serial.Serial(port=tty, baudrate=9600, dsrdtr=1, timeout=0.5)
+        self.serfd = self.ser.fd
         self.buf = []
         self.lock = threading.Lock()
         self.handlers = []
 
     ## internal data-handling methods
-    def recv_packet(self, timeout=None):
+    def recv_packet(self, timeout=None, debug=False):
+        if debug:
+            print("!!!!!!!!!!!!!!!!")
         t0 = time.time()
+
         self.ser.timeout = None
         while timeout is None or time.time() < t0 + timeout:
+            if debug:
+                print(timeout)
             if timeout is not None:
                 self.ser.timeout = t0 + timeout - time.time()
             c = self.ser.read()
+            # time.sleep(0.1)
+            if debug:
+                print("333333")
             if not c:
+                if debug:
+                    print("2")
                 return None
 
             ret = self.proc_byte(ord(c))
             if ret:
                 if ret.typ == 0x80:
                     self.handle_event(ret)
+                if debug:
+                    print(ret)
                 return ret
 
     def recv_packets(self, timeout=0.5):
@@ -159,15 +174,43 @@ class BT(object):
         self.add_handler(h)
         while res[0] is None:
             self.recv_packet()
-        print("RECV PACKET finish!")
-        # exit(1)
+        self.remove_handler(h)
+
+        return res[0]
+
+    def wait_event_2(self, cls, cmd):
+        print("wait_event_2")
+        res = [None]
+
+        def h(p):
+            if p.cls == cls and p.cmd == cmd:
+                res[0] = p
+
+        self.add_handler(h)
+        t0 = time.time()
+        while res[0] is None:
+            print("receiving......")
+            self.recv_packet(timeout=2, debug=True)
+            print("finish recv")
+            if time.time() - t0 > 2:
+                break
+        print("finish waiting")
         self.remove_handler(h)
 
         return res[0]
 
     ## specific BLE commands
     def connect(self, addr):
-        return self.send_command(6, 3, pack("6sBHHHH", multichr(addr), 0, 6, 6, 64, 0))
+        print("packing", multichr(addr))
+        # b'\x12/\xa5\xa0.\xf9' ROS
+        # b'\x12/\xa5\xa0.\xf9' Python
+
+        # print(pack("<6sBHHHH", multichr(addr), 0, 6, 6, 64, 0))
+        # b'\x12/\xa5\xa0.\xf9\x00\x06\x00\x06\x00@\x00\x00\x00' ROS
+        # b'\x12/\xa5\xa0.\xf9\x00\x06\x00\x06\x00@\x00\x00\x00' Python
+        return self.send_command(
+            6, 3, pack("6sBHHHH", multichr(addr), 0, 6, 6, 64, 0), isConnect=True
+        )
 
     def get_connections(self):
         return self.send_command(0, 6)
@@ -183,14 +226,31 @@ class BT(object):
 
     def read_attr(self, con, attr):
         self.send_command(4, 4, pack("BH", con, attr))
+        # Serial write: b'\x00\x03\x04\x04\x01\x17\x00' ROS
+        # Serial write: b'\x00\x03\x04\x04\x01\x17\x00'
+
         return self.wait_event(4, 5)
 
     def write_attr(self, con, attr, val):
         self.send_command(4, 5, pack("BHB", con, attr, len(val)) + val)
         return self.wait_event(4, 1)
 
-    def send_command(self, cls, cmd, payload=b"", wait_resp=True):
+    def send_command(self, cls, cmd, payload=b"", wait_resp=True, isConnect=False):
+        if isConnect:
+            print(f"Connect: {cls}, {cmd}, {payload}")
+            # 6, 3, b'\x12/\xa5\xa0.\xf9\x00\x00\x06\x00\x06\x00@\x00\x00\x00' ROS
+            # 6, 3, b'\x12/\xa5\xa0.\xf9\x00\x06\x00\x06\x00@\x00\x00\x00' Python
         s = pack("4B", 0, len(payload), cls, cmd) + payload
+
+        if isConnect:
+            print(f"Serial write connect: {s}")
+            # b'\x00\x0f\x06\x03\x12/\xa5\xa0.\xf9\x00\x06\x00\x06\x00@\x00\x00\x00'
+            # b'\x00\x10\x06\x03\x12/\xa5\xa0.\xf9\x00\x00\x06\x00\x06\x00@\x00\x00\x00'
+        print(f"Serial write: {s}")
+
+        # b'\x00\x03\x04\x04\x01\x17\x00' Python
+        # b'\x00\x04\x04\x04\x01\x00\x17\x00' ROS
+
         self.ser.write(s)
 
         while True:
@@ -198,11 +258,17 @@ class BT(object):
 
             ## no timeout, so p won't be None
             if p.typ == 0:
-                print("sds")
                 return p
 
             ## not a response: must be an event
             self.handle_event(p)
+
+    def fake(self):
+        while True:
+            print("reading")
+            c = self.ser.read()
+
+            print(c)
 
 
 class MyoRaw(object):
@@ -240,12 +306,13 @@ class MyoRaw(object):
         self.bt.disconnect(1)
         self.bt.disconnect(2)
 
-        ## start scanning
+        # start scanning
         print("scanning...")
         self.bt.discover()
+        print("discovered")
         while True:
             p = self.bt.recv_packet()
-            print("scan response:", p)
+            # print("scan response:", p)
 
             if p.payload.endswith(
                 b"\x06\x42\x48\x12\x4A\x7F\x2C\x48\x47\xB9\xDE\x04\xA9\x01\x00\x06\xD5"
@@ -253,19 +320,31 @@ class MyoRaw(object):
                 addr = list(multiord(p.payload[2:8]))
                 break
         self.bt.end_scan()
+        print("end scanning")
+        print(addr)
+        conn_pkt = self.bt.connect(addr)
 
         ## connect and wait for status event
-        print("connecting to", addr)
-        print(f"Before connect")
-        conn_pkt = self.bt.connect(addr)
         self.conn = multiord(conn_pkt.payload)[-1]
-        print(f"Before wait event")
 
+        print("wait event")
+        # print(self.bt.ser.fd, self.bt.serfd)
+        # print(os.stat(self.bt.ser.fd))
+        # print(self.bt.ser.is_open)
+        # print(self.bt.ser.fileno())
+        # print(self.bt.ser.get_settings())
+        # print(self.bt.ser.readable())
         self.bt.wait_event(3, 0)
-        # exit(1)
+        print("xxxxxxxxxxxxxxxxxxxxx")
 
         ## get firmware version
         fw = self.read_attr(0x17)
+        print(f"fw finished {fw.payload}")
+        # Packet(80, 04, 05, [01 17 00 00 08 01 00 05 00 B2 07 02 00]) Python
+        # Packet(80, 04, 05, [01 17 00 00 08 01 00 05 00 B2 07 02 00])
+        # b'\x01\x17\x00\x00\x08\x01\x00\x05\x00\xb2\x07\x02\x00' ROS
+        # b'\x01\x17\x00\x00\x08\x01\x00\x05\x00\xb2\x07\x02\x00'
+
         _, _, _, _, v0, v1, v2, v3 = unpack("BHBBHHHH", fw.payload)
         print("firmware version: %d.%d.%d.%d" % (v0, v1, v2, v3))
 
@@ -286,11 +365,6 @@ class MyoRaw(object):
             ## enable IMU data
             self.write_attr(0x1D, b"\x01\x00")
 
-            ## Sampling rate of the underlying EMG sensor, capped to 1000. If it's
-            ## less than 1000, emg_hz is correct. If it is greater, the actual
-            ## framerate starts dropping inversely. Also, if this is much less than
-            ## 1000, EMG data becomes slower to respond to changes. In conclusion,
-            ## 1000 is probably a good value.
             C = 1000
             emg_hz = 50
             ## strength of low-pass filtering of EMG data
@@ -323,12 +397,12 @@ class MyoRaw(object):
             if (p.cls, p.cmd) != (4, 5):
                 return
 
-            c, attr, typ = unpack("BHB", p.payload[:4])
+            c, attr, typ = unpack("<BHB", p.payload[:4])
             pay = p.payload[5:]
 
             if attr == 0x27:
                 # Unpack a 17 byte array, first 16 are 8 unsigned shorts, last one an unsigned char
-                vals = unpack("8HB", pay)
+                vals = unpack("<8HB", pay)
                 # not entirely sure what the last byte is, but it's a bitmask that
                 # seems to indicate which sensors think they're being moved around or
                 # something
@@ -393,39 +467,7 @@ class MyoRaw(object):
         self.write_attr(0x2F, b"\x01\x00")  # Suscribe to EmgData1Characteristic
         self.write_attr(0x32, b"\x01\x00")  # Suscribe to EmgData2Characteristic
         self.write_attr(0x35, b"\x01\x00")  # Suscribe to EmgData3Characteristic
-
-        """Bytes sent to handle 0x19 (command characteristic) have the following
-        format: [command, payload_size, EMG mode, IMU mode, classifier mode]
-        According to the Myo BLE specification, the commands are:
-            0x01 -> set EMG and IMU
-            0x03 -> 3 bytes of payload
-            0x02 -> send 50Hz filtered signals
-            0x01 -> send IMU data streams
-            0x01 -> send classifier events
-        """
         self.write_attr(0x19, b"\x01\x03\x02\x01\x01")
-
-        """Sending this sequence for v1.0 firmware seems to enable both raw data and
-        pose notifications.
-        """
-
-        """By writting a 0x0100 command to handle 0x28, some kind of "hidden" EMG
-        notification characteristic is activated. This characteristic is not
-        listed on the Myo services of the offical BLE specification from Thalmic
-        Labs. Also, in the second line where we tell the Myo to enable EMG and
-        IMU data streams and classifier events, the 0x01 command wich corresponds
-        to the EMG mode is not listed on the myohw_emg_mode_t struct of the Myo
-        BLE specification.
-        These two lines, besides enabling the IMU and the classifier, enable the
-        transmission of a stream of low-pass filtered EMG signals from the eight
-        sensor pods of the Myo armband (the "hidden" mode I mentioned above).
-        Instead of getting the raw EMG signals, we get rectified and smoothed
-        signals, a measure of the amplitude of the EMG (which is useful to have
-        a measure of muscle strength, but are not as useful as a truly raw signal).
-        """
-
-        # self.write_attr(0x28, b'\x01\x00')  # Not needed for raw signals
-        # self.write_attr(0x19, b'\x01\x03\x01\x01\x01')
 
     def mc_start_collection(self):
         """Myo Connect sends this sequence (or a reordering) when starting data
@@ -507,54 +549,22 @@ class MyoRaw(object):
             h(arm, xdir)
 
 
+import multiprocessing
+
+
 class ConnectMyo(Node):
     def __init__(self):
-        # def proc_emg(emg, moving, times=[]):
-        #     print(emg)
-
-        #     ## print framerate of received data
-        #     times.append(time.time())
-        #     if len(times) > 20:
-        #         #print((len(times) - 1) / (times[-1] - times[0]))
-        #         times.pop(0)
-
-        # def proc_imu(quat, acc, gyro):
-        #     print(quat)
-
-        # m = MyoRaw(sys.argv[1] if len(sys.argv) >= 2 else None)
-
-        # def proc_emg(emg, moving, times=[]):
-        #     print(emg)
-
-        #     ## print framerate of received data
-        #     times.append(time.time())
-        #     if len(times) > 20:
-        #         # print((len(times) - 1) / (times[-1] - times[0]))
-        #         times.pop(0)
-
-        # def proc_imu(quat, acc, gyro):
-        #     print(quat)
-
-        # m.add_emg_handler(proc_emg)
-        # # m.add_pose_handler(lambda p: pose_writer.writerow((time.time(), p.name, p.value)))
-        # m.add_pose_handler(lambda p: print(time.time(), p.name, p.value))
-        # m.add_imu_handler(proc_imu)
-
-        # m.connect()
-        # print("finished")
-
-        # self.m.add_arm_handler(lambda arm, xdir: print('arm', arm, 'xdir', xdir))
-
-        # self.m.add_pose_handler(lambda p: print('pose', p))
         super().__init__("connect_myo")
+        # self.ser = serial.Serial(port="/dev/ttyACM0", baudrate=9600, dsrdtr=1, timeout=0.5)
+        # self.imu_callback_group = rclpy.callback_groups.ReentrantCallbackGroup()
 
         parser = argparse.ArgumentParser()
         parser.add_argument("serial_port", nargs="?", default=None)
 
-        parser.add_argument("-i", "--imu-topic", default="myo_imu")
+        # parser.add_argument("-i", "--imu-topic", default="myo_imu")
         parser.add_argument("-e", "--emg-topic", default="myo_emg")
-        parser.add_argument("-a", "--arm-topic", default="myo_arm")
-        parser.add_argument("-g", "--gest-topic", default="myo_gest")
+        # parser.add_argument("-a", "--arm-topic", default="myo_arm")
+        # parser.add_argument("-g", "--gest-topic", default="myo_gest")
 
         args = parser.parse_args()
 
@@ -562,7 +572,7 @@ class ConnectMyo(Node):
         print("Initializing...")
         while connected == 0:
             try:
-                self.m = MyoRaw(args.serial_port)
+                self.m = MyoRaw("/tmp/ttyV0")
                 # fix bug
                 connected = 1
                 # for debug
@@ -574,44 +584,42 @@ class ConnectMyo(Node):
                 pass
 
         # Publish to the turtlesim movement topic
-        self.imuPub = self.create_publisher(Imu, args.imu_topic, 10)
+        # self.imuPub = self.create_publisher(
+        #     Imu, args.imu_topic, 10, callback_group=self.imu_callback_group
+        # )
         self.emgPub = self.create_publisher(EmgArray, args.emg_topic, 10)
-        self.armPub = self.create_publisher(MyoArm, args.arm_topic, 10)
-        self.gestPub = self.create_publisher(UInt8, args.gest_topic, 10)
+        # self.armPub = self.create_publisher(MyoArm, args.arm_topic, 10)
+        # self.gestPub = self.create_publisher(UInt8, args.gest_topic, 10)
 
         self.m.add_emg_handler(self.proc_emg)
-        self.m.add_imu_handler(self.proc_imu)
-        self.m.add_arm_handler(self.proc_arm)
-        self.m.add_pose_handler(self.proc_pose)
+        # self.m.add_imu_handler(self.proc_imu)
+        # self.m.add_arm_handler(self.proc_arm)
+        # self.m.add_pose_handler(self.proc_pose)
+        # self.m.connect()
 
-        self.thread = threading.Thread(target=self.connect_myo)
-        self.thread.daemon = True
-        self.thread.start()
+        thread_handle_connect = multiprocessing.Process(target=self.m.connect)
+        thread_handle_connect.start()
+        thread_handle_connect.join()
+        print("CONNECTED")
+        # self.get_logger().info("Connected to Myo armband")
+        thread_handle_read = multiprocessing.Process(target=self.read_serial_data)
+        thread_handle_read.start()
 
     def proc_emg(self, emg, moving, times=[]):
         ## create an array of ints for emg data
         msg = EmgArray()
         msg.data = emg
         self.emgPub.publish(msg)
-        print(msg)
+        print(emg)
         ## print framerate of received data
         times.append(time.time())
         if len(times) > 20:
-
-            # print((len(times) - 1) / (times[-1] - times[0]))
             times.pop(0)
 
-    # Package the IMU data into an Imu message
     def proc_imu(self, quat1, acc, gyro):
-        # New info: https://github.com/thalmiclabs/myo-bluetooth/blob/master/myohw.h#L292-L295
-        # Scale values for unpacking IMU data
-        # define MYOHW_ORIENTATION_SCALE   16384.0f ///< See myohw_imu_data_t::orientation
-        # define MYOHW_ACCELEROMETER_SCALE 2048.0f  ///< See myohw_imu_data_t::accelerometer
-        # define MYOHW_GYROSCOPE_SCALE     16.0f    ///< See myohw_imu_data_t::gyroscope
         h = Header()
         h.stamp = self.get_clock().now().to_msg()
         h.frame_id = "myo"
-        # We currently do not know the covariance of the sensors with each other
         cov = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         quat = Quaternion(
             quat1[0] / 16384.0,
@@ -619,7 +627,6 @@ class ConnectMyo(Node):
             quat1[2] / 16384.0,
             quat1[3] / 16384.0,
         )
-        ## Normalize the quaternion and accelerometer values
         quatNorm = math.sqrt(
             quat.x * quat.x + quat.y * quat.y + quat.z * quat.z + quat.w * quat.w
         )
@@ -631,87 +638,35 @@ class ConnectMyo(Node):
         imu = Imu(h, normQuat, cov, normGyro, cov, normAcc, cov)
         self.imuPub.publish(imu)
 
-        # Package the arm and x-axis direction into an Arm message
-
     def proc_arm(self, arm, xdir):
-        # When the arm state changes, publish the new arm and orientation
         calibArm = MyoArm(arm.value, xdir.value)
         self.armPub.publish(calibArm)
 
-    # Publish the value of an enumerated gesture
     def proc_pose(self, p):
         self.gestPub.publish(p.value)
 
-    def connect_myo(self):
-        # try try try
-        print("I got into connect_myo")
-
+    def read_serial_data(self):
         try:
-            self.m.connect()
-            self.get_logger().info("Connected to Myo armband")
-            while not rclpy.ok():
-                self.m.run(1)
-
-        except (
-            rclpy.exceptions.ROSInterruptException,
-            serial.serialutil.SerialException,
-        ) as e:
-            pass
+            while True:
+                packet = self.m.run(1)
+                if packet is None:
+                    self.get_logger().warn("No packet received, continuing...")
+        except Exception as e:
+            self.get_logger().error(f"Error in read_serial_data: {e}")
         finally:
-            print()
-            print("Disconnecting...")
             self.m.disconnect()
-            print()
 
 
 def main(args=None):
-    # print(f"Sent arg: [{sent_arg}]")
-    # exit(1)
-    # m = MyoRaw(sys.argv[1] if len(sys.argv) >= 2 else None)
-
-    # def proc_emg(emg, moving, times=[]):
-    #     print(emg)
-
-    #     ## print framerate of received data
-    #     times.append(time.time())
-    #     if len(times) > 20:
-    #         # print((len(times) - 1) / (times[-1] - times[0]))
-    #         times.pop(0)
-
-    # def proc_imu(quat, acc, gyro):
-    #     print(quat)
-
-    # m.add_emg_handler(proc_emg)
-    # # m.add_pose_handler(lambda p: pose_writer.writerow((time.time(), p.name, p.value)))
-    # m.add_pose_handler(lambda p: print(time.time(), p.name, p.value))
-    # m.add_imu_handler(proc_imu)
-
-    # m.connect()
-    # print("finished")
-
-    # try:
-    #     while True:
-    #         if m.run(1) is None:
-    #             print("Connection lost, try to reconnect")
-    #             m.connect()
-
-    # except KeyboardInterrupt:
-    #     pass
-    # finally:
-    #     m.disconnect()
-    #     print()
-    # exit(0)
+    rclpy.init(args=args)
+    myo_connection = ConnectMyo()
 
     try:
-        rclpy.init(args=args)
-
-        myo_connection = ConnectMyo()
-
-        rclpy.spin(myo_connection)
-    except Exception as e:
-        print(f"An error occurred: {e}")
+        rclpy.spin_once(myo_connection)
+    except rclpy.exceptions.ROSInterruptException:
         pass
     finally:
+        myo_connection.destroy_node()
         rclpy.shutdown()
 
 

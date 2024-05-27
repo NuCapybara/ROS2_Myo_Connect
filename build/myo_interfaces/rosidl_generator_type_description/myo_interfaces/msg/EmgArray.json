@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "myo_interfaces/msg/EmgArray",
+      "fields": [
+        {
+          "name": "data",
+          "type": {
+            "type_id": 148,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "myo_interfaces/msg/EmgArray",
+      "hash_string": "RIHS01_01e3ad45cc37c515f3b2d275bdfd1da798b1a469cc42b1bb502ef1bb6993c6e9"
+    }
+  ]
+}

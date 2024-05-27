@@ -1,0 +1,5 @@
+[console_scripts]
+connectMyo = ros_myo.ConnectMyo:main
+myoDemo = ros_myo.MyoDemo:main
+turtleSimDrive = ros_myo.TurtlesimDrive:main
+

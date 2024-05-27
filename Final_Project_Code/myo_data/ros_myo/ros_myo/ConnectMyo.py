@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from __future__ import print_function
-from struct import pack
+from struct import pack, unpack
 
 import argparse
 import enum
@@ -15,6 +15,7 @@ import serial
 from serial.tools.list_ports import comports
 from common import *
 import rclpy
+import rclpy.callback_groups
 import rclpy.exceptions
 from rclpy.node import Node
 from std_msgs.msg import (
@@ -28,6 +29,7 @@ from std_msgs.msg import (
 from geometry_msgs.msg import Quaternion, Vector3
 from sensor_msgs.msg import Imu
 from myo_interfaces.msg import MyoArm, EmgArray
+import os
 
 
 def multichr(ords):
@@ -86,7 +88,8 @@ class BT(object):
     """Implements the non-Myo-specific details of the Bluetooth protocol."""
 
     def __init__(self, tty):
-        self.ser = serial.Serial(port=tty, baudrate=9600, dsrdtr=1, timeout=0)
+        self.ser = serial.Serial(port=tty, baudrate=9600, dsrdtr=1, timeout=0.5)
+        self.serfd = self.ser.fd
         self.buf = []
         self.lock = threading.Lock()
         self.handlers = []
@@ -99,7 +102,6 @@ class BT(object):
             if timeout is not None:
                 self.ser.timeout = t0 + timeout - time.time()
             c = self.ser.read()
-
             if not c:
                 return None
 
@@ -164,9 +166,28 @@ class BT(object):
 
         return res[0]
 
+    def wait_event_2(self, cls, cmd):
+        res = [None]
+
+        def h(p):
+            if p.cls == cls and p.cmd == cmd:
+                res[0] = p
+
+        self.add_handler(h)
+        t0 = time.time()
+        while res[0] is None:
+
+            self.recv_packet(timeout=2)
+
+            if time.time() - t0 > 2:
+                break
+        self.remove_handler(h)
+
+        return res[0]
+
     ## specific BLE commands
     def connect(self, addr):
-        return self.send_command(6, 3, pack("6sBHHHH", multichr(addr), 0, 6, 6, 64, 0))
+        return self.send_command(6, 3, pack("<6sBHHHH", multichr(addr), 0, 6, 6, 64, 0))
 
     def get_connections(self):
         return self.send_command(0, 6)
@@ -181,15 +202,17 @@ class BT(object):
         return self.send_command(3, 0, pack("B", h))
 
     def read_attr(self, con, attr):
-        self.send_command(4, 4, pack("BH", con, attr))
+        self.send_command(4, 4, pack("<BH", con, attr))
         return self.wait_event(4, 5)
 
     def write_attr(self, con, attr, val):
-        self.send_command(4, 5, pack("BHB", con, attr, len(val)) + val)
+        self.send_command(4, 5, pack("<BHB", con, attr, len(val)) + val)
         return self.wait_event(4, 1)
 
     def send_command(self, cls, cmd, payload=b"", wait_resp=True):
         s = pack("4B", 0, len(payload), cls, cmd) + payload
+
+        print(f"Serial write: {s}")
         self.ser.write(s)
 
         while True:
@@ -201,6 +224,13 @@ class BT(object):
 
             ## not a response: must be an event
             self.handle_event(p)
+
+    def fake(self):
+        while True:
+            print("reading")
+            c = self.ser.read()
+
+            print(c)
 
 
 class MyoRaw(object):
@@ -238,12 +268,12 @@ class MyoRaw(object):
         self.bt.disconnect(1)
         self.bt.disconnect(2)
 
-        ## start scanning
+        # start scanning
         print("scanning...")
         self.bt.discover()
         while True:
             p = self.bt.recv_packet()
-            print("scan response:", p)
+            # print("scan response:", p)
 
             if p.payload.endswith(
                 b"\x06\x42\x48\x12\x4A\x7F\x2C\x48\x47\xB9\xDE\x04\xA9\x01\x00\x06\xD5"
@@ -251,19 +281,21 @@ class MyoRaw(object):
                 addr = list(multiord(p.payload[2:8]))
                 break
         self.bt.end_scan()
+        print("end scanning")
 
-        time.sleep(3)
+        while True:
+            ## connect and wait for status event
+            conn_pkt = self.bt.connect(addr)
 
-        ## connect and wait for status event
-        print("connecting to", addr)
-        conn_pkt = self.bt.connect(addr)
-        print(f"================= {conn_pkt} =====================")
-        self.conn = multiord(conn_pkt.payload)[-1]
-        self.bt.wait_event(3, 0)
+            # self.bt.fake()
+            self.conn = multiord(conn_pkt.payload)[-1]
+
+            if self.bt.wait_event_2(3, 0) is not None:
+                break
 
         ## get firmware version
         fw = self.read_attr(0x17)
-        _, _, _, _, v0, v1, v2, v3 = unpack("BHBBHHHH", fw.payload)
+        _, _, _, _, v0, v1, v2, v3 = unpack("<BHBBHHHH", fw.payload)
         print("firmware version: %d.%d.%d.%d" % (v0, v1, v2, v3))
 
         self.old = v0 == 0
@@ -315,7 +347,7 @@ class MyoRaw(object):
             if (p.cls, p.cmd) != (4, 5):
                 return
 
-            c, attr, typ = unpack("BHB", p.payload[:4])
+            c, attr, typ = unpack("<BHB", p.payload[:4])
             pay = p.payload[5:]
 
             if attr == 0x27:
@@ -474,8 +506,8 @@ class ConnectMyo(Node):
         parser = argparse.ArgumentParser()
         parser.add_argument("serial_port", nargs="?", default=None)
 
-        parser.add_argument("-i", "--imu-topic", default="myo_imu")
         parser.add_argument("-e", "--emg-topic", default="myo_emg")
+        parser.add_argument("-i", "--imu-topic", default="myo_imu")
         parser.add_argument("-a", "--arm-topic", default="myo_arm")
         parser.add_argument("-g", "--gest-topic", default="myo_gest")
 
@@ -485,7 +517,7 @@ class ConnectMyo(Node):
         print("Initializing...")
         while connected == 0:
             try:
-                self.m = MyoRaw(args.serial_port)
+                self.m = MyoRaw("/tmp/ttyV0")
                 # fix bug
                 connected = 1
                 # for debug
@@ -497,8 +529,8 @@ class ConnectMyo(Node):
                 pass
 
         # Publish to the turtlesim movement topic
-        self.imuPub = self.create_publisher(Imu, args.imu_topic, 10)
         self.emgPub = self.create_publisher(EmgArray, args.emg_topic, 10)
+        self.imuPub = self.create_publisher(Imu, args.imu_topic, 10)
         self.armPub = self.create_publisher(MyoArm, args.arm_topic, 10)
         self.gestPub = self.create_publisher(UInt8, args.gest_topic, 10)
 
@@ -507,16 +539,16 @@ class ConnectMyo(Node):
         self.m.add_arm_handler(self.proc_arm)
         self.m.add_pose_handler(self.proc_pose)
 
-        self.thread = threading.Thread(target=self.read_serial_data)
-        self.thread.daemon = True
-        self.thread.start()
+        thread_handle_read = threading.Thread(target=self.read_serial_data)
+        thread_handle_read.start()
+        thread_handle_read.join()
 
     def proc_emg(self, emg, moving, times=[]):
         ## create an array of ints for emg data
         msg = EmgArray()
         msg.data = emg
         self.emgPub.publish(msg)
-        print(msg)
+        print(emg)
         ## print framerate of received data
         times.append(time.time())
         if len(times) > 20:
@@ -528,33 +560,50 @@ class ConnectMyo(Node):
         h.frame_id = "myo"
         cov = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         quat = Quaternion(
-            quat1[0] / 16384.0,
-            quat1[1] / 16384.0,
-            quat1[2] / 16384.0,
-            quat1[3] / 16384.0,
+            x=quat1[0] / 16384.0,
+            y=quat1[1] / 16384.0,
+            z=quat1[2] / 16384.0,
+            w=quat1[3] / 16384.0,
         )
         quatNorm = math.sqrt(
             quat.x * quat.x + quat.y * quat.y + quat.z * quat.z + quat.w * quat.w
         )
         normQuat = Quaternion(
-            quat.x / quatNorm, quat.y / quatNorm, quat.z / quatNorm, quat.w / quatNorm
+            x=quat.x / quatNorm,
+            y=quat.y / quatNorm,
+            z=quat.z / quatNorm,
+            w=quat.w / quatNorm,
         )
-        normAcc = Vector3(acc[0] / 2048.0, acc[1] / 2048.0, acc[2] / 2048.0)
-        normGyro = Vector3(gyro[0] / 16.0, gyro[1] / 16.0, gyro[2] / 16.0)
-        imu = Imu(h, normQuat, cov, normGyro, cov, normAcc, cov)
+        normAcc = Vector3(x=acc[0] / 2048.0, y=acc[1] / 2048.0, z=acc[2] / 2048.0)
+        normGyro = Vector3(x=gyro[0] / 16.0, y=gyro[1] / 16.0, z=gyro[2] / 16.0)
+
+        # Double check this
+        imu = Imu(
+            header=h,
+            orientation=normQuat,
+            orientation_covariance=cov,
+            angular_velocity=normGyro,
+            angular_velocity_covariance=cov,
+            linear_acceleration=normAcc,
+            linear_acceleration_covariance=cov,
+        )
         self.imuPub.publish(imu)
 
     def proc_arm(self, arm, xdir):
-        calibArm = MyoArm(arm.value, xdir.value)
+        calibArm = MyoArm()
+        calibArm.arm = arm.value
+        calibArm.xdir = xdir.value
         self.armPub.publish(calibArm)
 
     def proc_pose(self, p):
-        self.gestPub.publish(p.value)
+        msg = UInt8()
+        msg.data = p.value
+        self.gestPub.publish(msg)
 
     def read_serial_data(self):
+        self.m.connect()
+        print("Connected to Myo armband")
         try:
-            self.m.connect()
-            self.get_logger().info("Connected to Myo armband")
             while True:
                 packet = self.m.run(1)
                 if packet is None:
@@ -568,11 +617,9 @@ class ConnectMyo(Node):
 def main(args=None):
     rclpy.init(args=args)
     myo_connection = ConnectMyo()
-    executor = rclpy.executors.MultiThreadedExecutor()
-    executor.add_node(myo_connection)
 
     try:
-        executor.spin()
+        rclpy.spin(myo_connection)
     except rclpy.exceptions.ROSInterruptException:
         pass
     finally:

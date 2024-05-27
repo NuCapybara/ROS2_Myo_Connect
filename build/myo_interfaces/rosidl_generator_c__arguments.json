@@ -1,0 +1,40 @@
+{
+  "package_name": "myo_interfaces",
+  "output_dir": "/home/jialuyu/Final_Project/ROS2_Myo_Connect/build/myo_interfaces/rosidl_generator_c/myo_interfaces",
+  "template_dir": "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource",
+  "idl_tuples": [
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/build/myo_interfaces/rosidl_adapter/myo_interfaces:msg/EmgArray.idl",
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/build/myo_interfaces/rosidl_adapter/myo_interfaces:msg/MyoArm.idl"
+  ],
+  "ros_interface_files": [
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/myo_interfaces/msg/EmgArray.msg",
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/Final_Project_Code/myo_data/myo_interfaces/msg/MyoArm.msg"
+  ],
+  "target_dependencies": [
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../../../lib/python3.10/site-packages/rosidl_generator_c/__init__.py",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/action__type_support.h.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/action__type_support.c.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/empty__description.c.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/full__description.c.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/idl.h.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/idl__description.c.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/idl__functions.c.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/idl__functions.h.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/idl__struct.h.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/idl__type_support.c.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/idl__type_support.h.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/msg__functions.c.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/msg__functions.h.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/msg__struct.h.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/msg__type_support.h.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/srv__type_support.c.em",
+    "/opt/ros/iron/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/build/myo_interfaces/rosidl_adapter/myo_interfaces/msg/EmgArray.idl",
+    "/home/jialuyu/Final_Project/ROS2_Myo_Connect/build/myo_interfaces/rosidl_adapter/myo_interfaces/msg/MyoArm.idl"
+  ],
+  "type_description_tuples": [
+    "msg/EmgArray.idl:/home/jialuyu/Final_Project/ROS2_Myo_Connect/build/myo_interfaces/rosidl_generator_type_description/myo_interfaces/msg/EmgArray.json",
+    "msg/MyoArm.idl:/home/jialuyu/Final_Project/ROS2_Myo_Connect/build/myo_interfaces/rosidl_generator_type_description/myo_interfaces/msg/MyoArm.json"
+  ]
+}

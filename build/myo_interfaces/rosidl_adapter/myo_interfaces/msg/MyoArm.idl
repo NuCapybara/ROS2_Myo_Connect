@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from myo_interfaces/msg/MyoArm.msg
+// generated code does not contain a copyright notice
+
+
+module myo_interfaces {
+  module msg {
+    @verbatim (language="comment", text=
+      "Arm message for the Thalmic Myo. Using firmware 1.1.4.2, " "\n"
+      "Thalmic Gesture Recognition is possible after sync gesture is performed.")
+    struct MyoArm {
+      @verbatim (language="comment", text=
+        "arm represents which arm the device is on" "\n"
+        "Enumerated: UNKNOWN=0, RIGHT=1, LEFT=2")
+      uint8 arm;
+
+      @verbatim (language="comment", text=
+        "xdir represents the direction of the x-axis" "\n"
+        "Enumerated: UNKNOWN=0, X_TOWARD_WRIST=1, X_TOWARD_ELBOW=2")
+      uint8 xdir;
+    };
+  };
+};
